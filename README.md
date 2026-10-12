@@ -1,21 +1,35 @@
-🎤 INTRODUCTION (FINAL VERSION)
-
-“Hi, I’m Ranjith.
-
 Hi, this is Ranjith. I have around 10 years of experience in Cloud, DevOps, and Site Reliability Engineering, with a strong focus on AWS and Azure infrastructure, Kubernetes, observability, automation, and production support.
 
-In my recent role at **Speedy Hire**, I worked as part of a centralised SRE team supporting applications and microservices across different environments. The applications were primarily running on Azure AKS, with supporting applications and infrastructure across Azure and AWS.My main responsibilities included monitoring application availability and performance, handling production incidents, supporting deployments and rollbacks, and working on root cause analysis and preventive actions. I used Prometheus, Grafana, Azure Monitor, and Application Insights to monitor latency, error rates, traffic, resource saturation, pod health, and overall application performance. I also worked on dashboards and alerting improvements to enhance visibility and support faster incident detection.
+In my recent role at **Speedy Hire**, I worked as part of a centralised SRE team supporting applications and microservices across different environments. The applications were primarily running on Azure AKS, with supporting applications and infrastructure across Azure and AWS.My main responsibilities included monitoring application availability and performance, handling production incidents, supporting deployments and rollbacks, and working on root cause analysis and preventive actions. I worked with monitoring and observability tools such as Prometheus, Grafana, Azure Monitor, and Application Insights to track application performance, latency, error rates, CPU and memory utilisation, and Kubernetes pod health. On selected projects, we also used Dynatrace for application performance monitoring and distributed tracing. I contributed to improving dashboards and alerts to increase visibility, identify issues earlier, and support faster incident detection and resolution.
 On the DevOps side, I worked with Azure DevOps, Docker, Helm, and Terraform, along with Shell scripting to automate repetitive operational activities. I also worked closely with development and platform teams to improve observability, reduce alert noise, and strengthen platform reliability.
-**Previously, at Lloyds Bank through Wipro, I worked as a DevSecOps and AEM Technical Lead**, supporting multiple applications and websites across cloud environments. My responsibilities included AWS infrastructure and operations, CI/CD pipeline management using Jenkins and Azure DevOps, containerisation with Docker, and Kubernetes-related technologies including EKS, AKS, and Rancher.
+**Previously, at Lloyds Bank through Wipro, I worked as a DevSecops and AEM Technical Lead**, supporting multiple applications and websites across cloud environments. My responsibilities included AWS infrastructure and operations, CI/CD pipeline management using Jenkins , containerisation with Docker, and Kubernetes-related technologies including EKS, AKS, and Rancher.
 I was also involved in cloud security and vulnerability management, working with tools and controls such as Fortify, Twistlock, WAF, and access management. My work included supporting production issues, improving deployment processes, troubleshooting infrastructure problems, and collaborating with application, security, and infrastructure teams to maintain stable and secure environments.Across both roles, I have gained strong experience in production incident management, monitoring and alerting, cloud infrastructure, deployment automation, security, and operational improvement.
 
 
-DAY-TO-DAY ACTIVITIES 🎤 Answer (Use this directly):
+**1. Explain your role as a Senior SRE**
+My primary responsibility as a Senior Site Reliability Engineer is to support application development teams and ensure the reliability, availability, and performance of their applications and underlying infrastructure.
+In my recent role at Speedy Hire, I worked as part of a centralised SRE team, supporting applications and microservices across cloud environments, primarily AWS and Azure 
+My day-to-day responsibilities included monitoring application performance, troubleshooting production incidents, supporting deployments and rollbacks, and performing root cause analysis to prevent recurring issues.
+For monitoring and observability, I worked with Dynatrace, Prometheus, Grafana, Azure Monitor, and Application Insights to monitor application latency, error rates, CPU and memory utilisation, Kubernetes pod health, and service dependencies. I also contributed to improving dashboards and alerts to identify issues earlier and support faster incident detection and resolution.
 
-“At Speedy Hire, my day-to-day activities focused on maintaining production stability, monitoring application performance, resolving incidents and improving service reliability.
-First, I would review monitoring dashboards and alerts using Prometheus, Grafana, Azure Monitor and Application Insights. For projects using Dynatrace, I would also review service health, response times, error rates and application dependencies.
-I would monitor key metrics such as availability, latency, traffic, error rates, CPU and memory utilisation, and Kubernetes pod health to identify potential issues proactively.
-I was involved in production incident management, where I analysed metrics and logs, investigated failures, coordinated with development and platform teams, and supported service recovery. After incidents, I contributed to root cause analysis and preventive improvements.On the DevOps side, I worked with Azure DevOps, Docker, Helm and Terraform to support deployments, troubleshoot pipeline failures and automate repetitive operational tasks using Shell scripting.I also collaborated with engineering teams to improve dashboards, tune alerts, reduce operational toil and strengthen production reliability.Overall, my focus was on keeping applications available, responding effectively to incidents and continuously improving the reliability of the platform.”
+On the DevOps side, I worked with Azure DevOps, Docker, Helm, Terraform, and shell scripting to support deployment automation and improve operational efficiency.I collaborated closely with developers, platform engineers, and other teams to troubleshoot infrastructure-related issues, resolve deployment failures, and maintain stable production environments.Overall, my goal as an SRE is not just to resolve incidents, but also to identify their root causes, reduce repetitive manual work through automation, and implement preventive measures to improve system reliability.
+
+**. Explain your CI/CD pipeline using Azure DevOps and AKS**
+
+In my role as a Senior Site Reliability Engineer, I support application development teams with CI/CD pipeline failures, infrastructure issues, and deployment problems.
+The applications are primarily Java-based Spring Boot microservices, deployed as containers across Dev, QA, and Production environments.We use Azure DevOps for CI/CD pipeline orchestration and Argo CD for continuous delivery to Azure Kubernetes Service (AKS).
+
+Let me explain the pipeline step by step.
+First, when a developer commits code to the repository, the Azure DevOps pipeline is triggered. The pipeline checks the target AKS cluster and verifies that the cluster and its worker nodes are healthy.
+Next, we validate the Dockerfile, Kubernetes YAML manifests, and Helm charts. We also run code security checks using Snyk and validate Kubernetes policies where configured.
+After validation, Maven compiles the Java application, resolves dependencies, runs the configured tests, and generates the application JAR artifact.
+In the packaging stage, we build the Docker image, tag it using the build number or commit ID, prepare the Helm chart, and push the image to Azure Container Registry (ACR) and the chart to the configured chart repository.
+We then scan the container image for known vulnerabilities and address any findings according to the security policy.
+For deployment, we update the GitOps configuration repository with the approved image and Helm chart versions. Argo CD monitors that repository and synchronises the desired configuration with the target AKS cluster.
+After deployment to Dev, we verify the Argo CD application status, Kubernetes pods, deployments, events, application logs, and post-deployment tests.
+Once the required QA tests and approvals pass, we promote the same approved release artifact through QA and Production, following the established release process.
+My responsibility as an SRE is to troubleshoot failures across these stages, collaborate with developers and platform teams, support safe deployments and rollbacks, and improve pipeline reliability through automation and preventive measures.
+
 
 **K8s regular issues**
 
@@ -31,24 +45,40 @@ Pod Pending ,Node Not Ready ,503 Errors ,Ingress Issues ,HPA Issues ,PV Issues R
 
 ✅ Pod restart ✅ High CPU ✅ High memory ✅ Pod not ready ✅ 5xx errors ✅ Node down
 
-**a production microservice suddenly experiences high latency and HTTP 5xx errors. Customers are reporting timeout**s
-“In my SRE role at Speedy Hire, I supported production applications and microservices where availability and performance were critical. In this scenario, the application suddenly experiences increased response times and HTTP 5xx errors, affecting customers.”
+**Dynatrace detects increased latency and HTTP 5xx errors after a new application release. Customers are affected**
+ 
+“In my SRE role at Speedy Hire, I supported multiple applications and microservices where production availability and performance were critical. In this scenario, a new release is followed by increased response times and HTTP 5xx errors, affecting customers.”
+“My responsibility is to assess the impact, restore service safely, coordinate with the development and platform teams, identify the root cause and prevent the issue from recurring.”
+“First, I would investigate the alert in Dynatrace. I would check service response time, failure rate, affected services and the problem timeline to understand the extent of the impact.
+Next, I would use distributed tracing and PurePath to identify where requests are failing or taking longer than expected. I would correlate this with application logs, Prometheus and Grafana metrics, Azure Monitor and Application Insights, as appropriate.I would check whether the issue coincides with the latest deployment and review any related application, configuration or infrastructure changes.If the evidence indicates that the release caused the problem, I would coordinate with the development and release teams and assess whether to roll back to the last stable version or apply a targeted fix. I would follow the incident and change-management procedures, communicate updates to stakeholders and validate service recovery using the monitoring dashboards.Once the incident is resolved, I would conduct a root cause analysis with the relevant teams. We would identify the underlying cause, document the findings and agree preventive actions.For example, these might include stronger deployment health checks, improved Dynatrace alerting, automated rollback criteria, better test coverage or automation of a repetitive operational task.”
+“The objective is to restore production service, minimise customer impact and reduce the risk of recurrence. By combining observability, structured incident management, collaboration and automation, we can improve both service reliability and deployment quality.”
 
-“My responsibility is to identify the root cause, minimise customer impact, restore service safely and implement preventive actions.”
-“First, I would use Dynatrace to assess the impact and identify where the problem is occurring.
-I would open the service overview and check response time, failure rate, throughput and the affected services. I would also look at the problem analysis to understand when the issue started and whether it correlates with a deployment or infrastructure change.
-Next, I would use distributed tracing, including PurePath, to follow individual requests across the microservices. This would help me identify whether the delay originates in the application, a database call or another downstream dependency.
-I would then correlate the traces with application logs and infrastructure metrics. If the application runs on Kubernetes, I would check pod health, CPU and memory utilisation, container restarts, readiness probes and resource limits.
-For example, suppose Dynatrace shows that response times increased immediately after a deployment, and distributed traces identify a slow downstream service. I would investigate the dependency and recent changes, coordinate with the application team, and assess whether rolling back the release or applying another safe mitigation is appropriate.Throughout the incident, I would communicate updates to stakeholders. After applying the mitigation, I would use Dynatrace to verify that response times and failure rates have returned to acceptable levels.Finally, I would conduct a root cause analysis, review why the existing alerts did not prevent or detect the issue earlier, and improve dashboards, alert thresholds and preventive controls.”
-
-R — Result
-“The objective is to restore service, minimise customer impact and prevent recurrence. Dynatrace helps connect service-level symptoms with distributed traces and infrastructure metrics, allowing the team to identify the bottleneck faster and make evidence-based decisions.”
+-----
 
 “What metrics do you normally monitor in Speedy?”“The key metrics I monitored across the applications at Speedy Hire were availability, latency, traffic, error rates, CPU and memory utilisation, and Kubernetes pod health.As we supported multiple applications and microservices, we used different monitoring and observability tools depending on the project. Prometheus and Grafana were used for infrastructure metrics, dashboards and alerting, while Azure Monitor and Application Insights provided Azure infrastructure and application-level monitoring.For some projects, we implemented Dynatrace to improve end-to-end application observability, monitor service performance, analyse distributed traces and identify bottlenecks across microservices and their dependencies.
 We also used SLI, SLO and KPI concepts to assess service reliability, monitor performance against expectations and support proactive incident management.”
 
+-----
+**Capacity Planning and Proactive Scaling** we need to identify when an application needs more capacity before performance starts affecting customers?”
 
-Scenario 2: SLI, SLO, SLA and Error Budget 
+“In my SRE role at Speedy Hire, maintaining application performance and production stability was important across multiple applications and microservices. Increasing traffic or resource utilisation can affect response times and service availability if capacity is not managed properly.”“My responsibility would be to monitor resource utilisation, identify capacity risks early and ensure the platform can handle current and anticipated workloads without unnecessary infrastructure costs.”
+“First, I would review historical and real-time metrics using Prometheus, Grafana, Azure Monitor and, where implemented, Dynatrace.I would monitor CPU, memory, request traffic, latency, error rates and Kubernetes pod health. I would look for trends over time rather than reacting to a single high CPU reading.
+For example, suppose traffic increases steadily and CPU utilisation remains high while response times begin to rise. I would investigate whether the application is reaching its resource limits, whether requests are being throttled and whether the bottleneck is in the application or a downstream dependency.If the workload supports horizontal scaling, I would review the Horizontal Pod Autoscaler configuration and ensure that resource requests and scaling thresholds are appropriate. If the cluster lacks capacity to schedule additional pods, I would investigate node capacity and consider cluster autoscaling where supported.I would also review historical traffic patterns, upcoming business events and previous peak loads to forecast future demand. After making changes, I would validate application performance and resource utilisation and monitor the impact on cost.”
+“This approach helps identify capacity constraints before they become major incidents, maintain application performance during traffic increases and balance reliability with infrastructure cost.”
+
+--------
+**“Explain your monitoring approach at Speedy Hire.**
+
+“At Speedy Hire, we supported multiple applications and microservices across different environments, so my monitoring approach was to get visibility across the application, Kubernetes and infrastructure layers.
+At the **application level**, we used Application Insights to monitor request performance, latency, failure rates and application exceptions. For selected projects, we also implemented Dynatrace to provide end-to-end observability, distributed tracing and service dependency analysis. This helped us identify slow transactions and understand how issues in one service could affect other applications.
+At the **Kubernetes level**, we used Prometheus to collect metrics such as pod CPU and memory utilisation, pod health and application metrics, with Grafana dashboards to visualise trends and configure alerts.
+At the **infrastructure level**, we used Azure Monitor to track AKS node health, CPU, memory and overall resource utilisation.
+I followed a metrics, logs and traces approach. Rather than looking only at infrastructure metrics, I focused on user-facing indicators such as latency, error rates, availability and request throughput. This helped us understand not just whether the infrastructure was healthy, but also whether applications were performing as expected.For example, if we received an alert about high latency in one of our applications, I would first check Grafana and Prometheus to understand the resource utilisation and workload health. I would then use Application Insights or Dynatrace, depending on the project, to investigate application requests, traces and downstream dependencies.
+In different troubleshooting scenarios, I would investigate high node CPU using Azure Monitor, pod restarts and resource limits using Kubernetes events and logs, and application latency using request telemetry and distributed traces. If the evidence pointed to an ingress configuration issue, I would investigate the routing configuration and service endpoints.By correlating information across these monitoring tools, I could narrow down whether the problem was at the infrastructure, Kubernetes or application layer, coordinate the appropriate fix and verify recovery.
+Overall, this layered approach helped us improve visibility across multiple applications, investigate production incidents more effectively and make monitoring more relevant to customer experience.”
+
+---------------------
+**Scenario 2: SLI, SLO, SLA and Error Budget**
 Interviewer:  how do you measure application reliability, and what would you do if a service started breaching its SLO?”
 
 “At Speedy Hire, we supported multiple applications and microservices where maintaining availability and performance was important. We monitored application health using Prometheus, Grafana, Azure Monitor, Application Insights and Dynatrace on selected projects.”
@@ -57,15 +87,20 @@ Interviewer:  how do you measure application reliability, and what would you do 
 After resolving the issue, I would review the incident, identify monitoring gaps and track preventive actions.”
 “This approach helps teams measure reliability objectively, make informed release decisions and balance delivery speed with production stability.”
 
-**Dynatrace reports that a critical application is unavailable**
-Scenario 3: Dynatrace — identifying application performance bottlenecks
-Interviewer: “Ranjith, suppose an application is running, but response times have increased significantly. How would you use Dynatrace to identify the root cause?
-“At Speedy Hire, we supported multiple applications and microservices, so maintaining performance and identifying bottlenecks across service dependencies was important for production stability.”
+----------------------------------
+**How do you build an effective monitoring dashboard?**
+
+“I design dashboards around both user experience and infrastructure health.At the application level, I monitor availability, request latency, traffic, error rates and dependency performance. At the infrastructure level, I monitor CPU, memory, node health, pod restarts and resource utilisation.I use Grafana to visualise Prometheus metrics and configure useful alerts. Azure Monitor and Application Insights provide additional visibility into Azure resources and application requests. On projects using Dynatrace, I would also use service health and distributed traces to understand dependencies.
+I prefer dashboards that help the on-call engineer quickly answer three questions: What is failing, who is affected, and where should we investigate next?”
+
+----------------------------------------
+**Dynatrace reports that a critical application is unavailable**suppose an application is running, but response times have increased significantly. How would you use Dynatrace to identify the root cause?
+In our project  we supported multiple applications and microservices, so maintaining performance and identifying bottlenecks across service dependencies was important for production stability.”
 “My responsibility would be to investigate the performance degradation, identify the affected component, minimise customer impact and restore normal application performance.”
 “I would start by checking Dynatrace to identify which services are experiencing increased response times or failure rates. I would review the service overview and problem analysis to understand when the issue started and which components are affected.Next, I would use distributed tracing and PurePath to follow individual requests across the application and identify slow transactions, database calls or downstream dependencies.I would correlate the findings with application logs, infrastructure metrics and recent deployments. If the application runs on Kubernetes, I would also check pod health, CPU and memory utilisation, restarts and resource limits.For example, if a distributed trace showed that most of the response time was spent waiting for a database call, I would work with the database and application teams to investigate query performance, connection usage and recent changes.After applying the appropriate fix, I would verify that response times and error rates had returned to acceptable levels. I would then review the incident and improve alerts or dashboards to detect similar issues earlier.”
 “This approach helps isolate performance bottlenecks, reduce troubleshooting time and improve application reliability through evidence-based investigation and preventive actions.”
 
-**Scenario 4**Production Application Is Down**
+**Scenario 4 Production Application Is Down**
 “If a production application goes down, I would treat it as a high-priority incident and first understand the impact through our monitoring. I would check the application health, error rates, availability and infrastructure metrics to identify where the problem is happening. In Speedy, depending on the application, this could be an Azure AKS workload or an application running on AWS infrastructure. I would then check the application logs and look for any recent deployment, configuration or infrastructure changes. I would also check whether any dependent service is causing the failure.Once I identify the likely cause, I would take the appropriate recovery action, such as rolling back a recent change, recovering the affected service or working with the relevant team to resolve a dependency issue.During the incident, I would keep the stakeholders updated and focus on restoring the service safely. Once it is recovered, I would verify the application is stable through monitoring and then work on the RCA and preventive actions.”
 
 **Scenario 5 — Application Pod Keeps Restarting “One of your production application pods is continuously restarting. How would you handle it?”**
@@ -79,9 +114,6 @@ Interviewer: “Ranjith, suppose an application is running, but response times h
 
 **Scenario 8 — Monitoring & Observability“How did you monitor your applications in the Speedy project?”**
 “In Speedy, monitoring was a major part of my SRE responsibilities. We used Prometheus and Grafana for application and infrastructure metrics, along with Azure Monitor and Application Insights for Azure and application-level monitoring.I mainly focused on metrics such as availability, latency, traffic, error rates, CPU and memory. Application Insights was also useful for understanding application behaviour and dependencies. We used these metrics to build dashboards, identify abnormal behaviour and support incident investigation. We also used SLI and SLO concepts to understand whether the applications were meeting their reliability targets.My focus was not just reacting to alerts, but using monitoring proactively to identify performance or reliability issues before they became larger production problems.”
-
-**Scenario 9 — SLI, SLO and KPI in SpeedyCan you explain your SLI, SLO and KPI experience in the Speedy project?”**
-“In Speedy, we used SLI, SLO and KPI to measure the reliability and performance of our applications.SLI was the actual measurement we monitored, such as availability, latency or error rate.SLO was the target we wanted the application to achieve based on those measurements.KPI helped us track the overall performance and operational health of the service. From an SRE perspective, I used these measurements to monitor whether the applications were meeting their reliability expectations. If we saw an SLO moving towards a breach, we could investigate the reason and take action before it became a bigger production issue. So, for me, SLI tells us what is happening, SLO tells us what level we expect, and KPI helps us track overall performance and health.”
 
 **Scenario 10 — Deployment & Rollback in Speedy**
 “In Speedy, we used Azure DevOps for our CI/CD process, with Docker and Helm for application packaging and deployment into AKS.We followed a controlled deployment approach and used rolling deployments so that applications could be updated without unnecessary downtime.Before and during the deployment, we monitored the application health, availability, latency and error rates. If the new version showed unexpected behaviour, we had a rollback approach to return to the last known stable version.After the deployment, I would continue monitoring the application to make sure the new version was stable and meeting the expected reliability levels. The main focus was to make deployments safe, controlled and reliable while minimising production impact.”
@@ -100,7 +132,6 @@ To prevent this in future, we added checks in the deployment process to validate
 One incident I handled was fixing 502 errors during deployment. Users were getting 502 errors sometimes after a release. At first, everything looked fine — pods were running and there were no major alerts. I checked the Application Gateway and ingress logs and found that some requests were going to pods that were shutting down. Because of that, those pods were not able to handle the request, and users were seeing errors. To fix this, I made sure the pods stop receiving traffic before shutting down, and I added a small delay so they can finish ongoing requests. After this change, the 502 errors were resolved. We also applied the same fix to other services to avoid similar issues in future.”
 
 ----“Liveness checks if the pod is alive. Readiness checks if the pod is ready to receive traffic.” “If liveness fails, Kubernetes restarts the pod.” “If readiness fails, the pod is removed from traffic, but it is not restarted.----
-
 TRAFFIC SPIKE
 “During one peak time, traffic suddenly increased and the system started slowing down. It was clear that the system was not scaling fast enough to handle the load. So I quickly scaled the application to handle the traffic and bring things back to normal. After that, I adjusted the autoscaling settings so next time it scales automatically without manual intervention.”
 
@@ -113,19 +144,7 @@ TRAFFIC SPIKE
 
 “We had a situation where the pipeline was running fine until the deployment stage, but it failed while deploying to AKS. I checked the deployment logs and saw that the application was not pulling the container image. After checking further, I found there was an issue with the image access from the container registry. I fixed the permissions so the cluster could access the image, and then reran the deployment. After that, the deployment worked successfully. I also added a check in the pipeline to make sure the image is available before deployment
 
-**INGRESS ISSUE – APPLICATION NOT ACCESSIBLE**
 
-“We had a situation where the application was running, but users were not able to access it. I took responsibility to identify the issue quickly. I checked the ingress configuration and found it was pointing to the wrong service. I corrected the configuration and applied the changes. After that, the application became accessible. We also added checks to avoid such configuration issues in future.”
-
-Speedy monitoring aaproach “In our project, I follow a layered monitoring approach using Azure Monitor, Prometheus, Grafana, and Application Insights. At the application level, I use Application Insights to track latency, error rates, and request performance. At the Kubernetes level, I use Prometheus to collect metrics like pod CPU, memory, request rate, and error rate, and Grafana to visualise these metrics through dashboards. At the infrastructure level, I use Azure Monitor to track AKS node-level metrics such as CPU, memory, and overall node health.
-
-I usually approach observability by combining metrics, logs, and traces so I can get a complete picture of what’s happening in the system. When I build dashboards, I don’t just focus on infrastructure metrics like CPU or memory — I try to make them more meaningful by including application-level metrics as well. So typically, I track things like latency, error rates, and request throughput, because those directly reflect user experience. This way, the dashboards show not just system health, but also how users are being impacted, which helps us take quicker and more relevant decision
-
-In different scenarios, I have seen different types of issues:
-
-In one case, I observed high CPU usage on nodes using Azure Monitor. This indicated node-level pressure, so I scaled nodes. In another case, I saw pods going into CrashLoopBackOff, which I identified using Prometheus and logs. This was due to memory limits, and I fixed it by tuning resources. In one situation, there was high latency, but CPU was normal. Using Application Insights, I found it was due to a slow API dependency. I also faced a case where traffic was not routing properly, which I identified as an ingress configuration issue.
-
-So based on the issue, I correlate data from Azure Monitor, Prometheus, and Grafana to identify whether the problem is at node level, pod level, or application level, and take appropriate action. This approach helps me quickly identify and resolve infrastructure issues.”
 
 **CI CD process in speedy**
 
