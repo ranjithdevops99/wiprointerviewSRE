@@ -5,20 +5,16 @@ On the DevOps side, I worked with Azure DevOps, Docker, Helm, and Terraform, alo
 **Previously, at Lloyds Bank through Wipro, I worked as a DevSecops and AEM Technical Lead**, supporting multiple applications and websites across cloud environments. My responsibilities included AWS infrastructure and operations, CI/CD pipeline management using Jenkins , containerisation with Docker, and Kubernetes-related technologies including EKS, AKS, and Rancher.
 I was also involved in cloud security and vulnerability management, working with tools and controls such as Fortify, Twistlock, WAF, and access management. My work included supporting production issues, improving deployment processes, troubleshooting infrastructure problems, and collaborating with application, security, and infrastructure teams to maintain stable and secure environments.Across both roles, I have gained strong experience in production incident management, monitoring and alerting, cloud infrastructure, deployment automation, security, and operational improvement.
 
-
 **1. Explain your role as a Senior SRE**
 My primary responsibility as a Senior Site Reliability Engineer is to support application development teams and ensure the reliability, availability, and performance of their applications and underlying infrastructure.
 In my recent role at Speedy Hire, I worked as part of a centralised SRE team, supporting applications and microservices across cloud environments, primarily AWS and Azure 
 My day-to-day responsibilities included monitoring application performance, troubleshooting production incidents, supporting deployments and rollbacks, and performing root cause analysis to prevent recurring issues.
 For monitoring and observability, I worked with Dynatrace, Prometheus, Grafana, Azure Monitor, and Application Insights to monitor application latency, error rates, CPU and memory utilisation, Kubernetes pod health, and service dependencies. I also contributed to improving dashboards and alerts to identify issues earlier and support faster incident detection and resolution.
-
 On the DevOps side, I worked with Azure DevOps, Docker, Helm, Terraform, and shell scripting to support deployment automation and improve operational efficiency.I collaborated closely with developers, platform engineers, and other teams to troubleshoot infrastructure-related issues, resolve deployment failures, and maintain stable production environments.Overall, my goal as an SRE is not just to resolve incidents, but also to identify their root causes, reduce repetitive manual work through automation, and implement preventive measures to improve system reliability.
 
 **. Explain your CI/CD pipeline using Azure DevOps and AKS**
-
 In my role as a Senior Site Reliability Engineer, I support application development teams with CI/CD pipeline failures, infrastructure issues, and deployment problems.
 The applications are primarily Java-based Spring Boot microservices, deployed as containers across Dev, QA, and Production environments.We use Azure DevOps for CI/CD pipeline orchestration and Argo CD for continuous delivery to Azure Kubernetes Service (AKS).
-
 Let me explain the pipeline step by step.
 First, when a developer commits code to the repository, the Azure DevOps pipeline is triggered. The pipeline checks the target AKS cluster and verifies that the cluster and its worker nodes are healthy.
 Next, we validate the Dockerfile, Kubernetes YAML manifests, and Helm charts. We also run code security checks using Snyk and validate Kubernetes policies where configured.
@@ -30,19 +26,13 @@ After deployment to Dev, we verify the Argo CD application status, Kubernetes po
 Once the required QA tests and approvals pass, we promote the same approved release artifact through QA and Production, following the established release process.
 My responsibility as an SRE is to troubleshoot failures across these stages, collaborate with developers and platform teams, support safe deployments and rollbacks, and improve pipeline reliability through automation and preventive measures.
 
-
 **K8s regular issues**
-
 CrashLoopBackOff
 OOMKilled - pod was terminated because it exceeded memory limits.” set up resourecqota and limit -even we got error then collect Thread dump and heap memory from particular pod
-
 Liveness/Readiness Fail - liveness is for to check pod healty or not ,Readiness is to check ready to recieve trafic or not
-
 ImagePullBackOff
 Pod Pending ,Node Not Ready ,503 Errors ,Ingress Issues ,HPA Issues ,PV Issues Resource quota -for namespace will use resource quota Resource limit - for Pod level we implemenr tesource limit
-
 🚨 IMPORTANT ALERTS
-
 ✅ Pod restart ✅ High CPU ✅ High memory ✅ Pod not ready ✅ 5xx errors ✅ Node down
 
 **Dynatrace detects increased latency and HTTP 5xx errors after a new application release. Customers are affected**
