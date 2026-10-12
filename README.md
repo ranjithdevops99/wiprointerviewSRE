@@ -61,6 +61,8 @@ After resolving the issue, I would review the incident, identify monitoring gaps
 ### R — Result
 “This approach helps teams measure reliability objectively, make informed release decisions and balance delivery speed with production stability.”
 
+**Dynatrace reports that a critical application is unavailable**
+
 Scenario 3: Dynatrace — identifying application performance bottlenecks
 Interviewer: “Ranjith, suppose an application is running, but response times have increased significantly. How would you use Dynatrace to identify the root cause?
 
