@@ -51,28 +51,18 @@ We also used SLI, SLO and KPI concepts to assess service reliability, monitor pe
 Scenario 2: SLI, SLO, SLA and Error Budget 
 Interviewer:  how do you measure application reliability, and what would you do if a service started breaching its SLO?”
 
-### S — Situation
 “At Speedy Hire, we supported multiple applications and microservices where maintaining availability and performance was important. We monitored application health using Prometheus, Grafana, Azure Monitor, Application Insights and Dynatrace on selected projects.”
-### T — Task
 “My responsibility was to monitor service performance, identify reliability issues early, and work with engineering teams to maintain stable production environments.”
-### A — Action
 “I would start by identifying the key SLIs, such as availability, request success rate and latency. Based on business requirements, we would define SLOs, for example, a target of 99.9% availability over 30 days.I would monitor these indicators through dashboards and alerts. If a service started breaching its SLO, I would investigate the error rates, response times, infrastructure metrics and recent deployments to identify the cause.I would also assess the error budget. If it was being consumed too quickly, I would highlight the reliability risk and recommend prioritising stability improvements before taking additional release risks.An SLA is different from an SLO because it represents a formal commitment to the customer. I would ensure the agreed service commitments were monitored and any potential breach was communicated through the appropriate process.
 After resolving the issue, I would review the incident, identify monitoring gaps and track preventive actions.”
-### R — Result
 “This approach helps teams measure reliability objectively, make informed release decisions and balance delivery speed with production stability.”
 
 **Dynatrace reports that a critical application is unavailable**
-
 Scenario 3: Dynatrace — identifying application performance bottlenecks
 Interviewer: “Ranjith, suppose an application is running, but response times have increased significantly. How would you use Dynatrace to identify the root cause?
-
-### S — Situation
 “At Speedy Hire, we supported multiple applications and microservices, so maintaining performance and identifying bottlenecks across service dependencies was important for production stability.”
-### T — Task
 “My responsibility would be to investigate the performance degradation, identify the affected component, minimise customer impact and restore normal application performance.”
-### A — Action
 “I would start by checking Dynatrace to identify which services are experiencing increased response times or failure rates. I would review the service overview and problem analysis to understand when the issue started and which components are affected.Next, I would use distributed tracing and PurePath to follow individual requests across the application and identify slow transactions, database calls or downstream dependencies.I would correlate the findings with application logs, infrastructure metrics and recent deployments. If the application runs on Kubernetes, I would also check pod health, CPU and memory utilisation, restarts and resource limits.For example, if a distributed trace showed that most of the response time was spent waiting for a database call, I would work with the database and application teams to investigate query performance, connection usage and recent changes.After applying the appropriate fix, I would verify that response times and error rates had returned to acceptable levels. I would then review the incident and improve alerts or dashboards to detect similar issues earlier.”
-### R — Result
 “This approach helps isolate performance bottlenecks, reduce troubleshooting time and improve application reliability through evidence-based investigation and preventive actions.”
 
 **Scenario 4**Production Application Is Down**
