@@ -12,11 +12,12 @@ I was also involved in cloud security and vulnerability management, working with
 
 DAY-TO-DAY ACTIVITIES 🎤 Answer (Use this directly):
 
-In my day-to-day role, I mainly work on AWS infrastructure and support Linux-based production environments.
+“At Speedy Hire, my day-to-day activities focused on maintaining production stability, monitoring application performance, resolving incidents and improving service reliability.
+First, I would review monitoring dashboards and alerts using Prometheus, Grafana, Azure Monitor and Application Insights. For projects using Dynatrace, I would also review service health, response times, error rates and application dependencies.
+I would monitor key metrics such as availability, latency, traffic, error rates, CPU and memory utilisation, and Kubernetes pod health to identify potential issues proactively.
+I was involved in production incident management, where I analysed metrics and logs, investigated failures, coordinated with development and platform teams, and supported service recovery. After incidents, I contributed to root cause analysis and preventive improvements.On the DevOps side, I worked with Azure DevOps, Docker, Helm and Terraform to support deployments, troubleshoot pipeline failures and automate repetitive operational tasks using Shell scripting.I also collaborated with engineering teams to improve dashboards, tune alerts, reduce operational toil and strengthen production reliability.Overall, my focus was on keeping applications available, responding effectively to incidents and continuously improving the reliability of the platform.”
 
-“In my day-to-day role, my main focus is SRE, production reliability, DevOps and automation.I start by monitoring application and infrastructure health using Application Insights, Azure Monitor, Prometheus and Grafana. I look at availability, latency, error rates, traffic, CPU and memory, and review alerts and dashboards to make sure the services are stable.I also work on the DevOps side, supporting Azure CI/CD pipelines for Java-based application deployments, validation, rollback activities and deployment automation. I work with Docker, Helm and Kubernetes as part of the application deployment process.From the infrastructure side, I work across both AWS and Azure environments. I use Terraform for infrastructure as code to provision and manage cloud resources, and I support the underlying Linux and containerised environments. Depending on the application, this can involve services such as EC2, load balancing and networking in AWS, or AKS and other Azure services.When production incidents occur, I analyse logs, metrics and traces, identify the affected layer and coordinate with the relevant teams to restore the service quickly and safely.I also use Bash and Python scripting to automate repetitive operational tasks, reduce manual effort and improve efficiency. Overall, my focus is on maintaining high availability, supporting reliable deployments, monitoring system performance, resolving production issues and continuously improving automation and system reliability.”
-
-K8s regular issues
+**K8s regular issues**
 
 CrashLoopBackOff
 OOMKilled - pod was terminated because it exceeded memory limits.” set up resourecqota and limit -even we got error then collect Thread dump and heap memory from particular pod
@@ -29,7 +30,6 @@ Pod Pending ,Node Not Ready ,503 Errors ,Ingress Issues ,HPA Issues ,PV Issues R
 🚨 IMPORTANT ALERTS
 
 ✅ Pod restart ✅ High CPU ✅ High memory ✅ Pod not ready ✅ 5xx errors ✅ Node down
-PHASE 1 — PRODUCTION APPLICATION SUPPORT
 
 **a production microservice suddenly experiences high latency and HTTP 5xx errors. Customers are reporting timeout**s
 “In my SRE role at Speedy Hire, I supported production applications and microservices where availability and performance were critical. In this scenario, the application suddenly experiences increased response times and HTTP 5xx errors, affecting customers.”
